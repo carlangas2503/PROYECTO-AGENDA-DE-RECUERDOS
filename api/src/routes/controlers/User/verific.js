@@ -2,7 +2,8 @@ const { Usuario } = require('../../../db')
 
 const verific = async(req,res)=>{
     try {
-        const {Ingre,Contraseña} = req.body
+        const {Ingre,Contraseña} = req.query
+        if(!Ingre && !Contraseña) return res.status(404).send('Hay campos sin completar')
         const usuarioCorreo = await Usuario.findOne({where:{Correo:Ingre}})
         const usuarioApodo = await Usuario.findOne({where:{Apodo:Ingre}})
         if(usuarioApodo){
