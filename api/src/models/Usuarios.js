@@ -33,6 +33,10 @@ module.exports = (sequelize) => {
       },
       FotoPerfil:{
         type:DataTypes.STRING,
+      },
+      isAdmin:{
+        type:DataTypes.BOOLEAN,
+        allowNull:false
       }
     },{
       timestamps:false,

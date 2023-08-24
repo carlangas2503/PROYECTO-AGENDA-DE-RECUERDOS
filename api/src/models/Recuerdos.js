@@ -14,7 +14,7 @@ module.exports = (sequelize) => {
         unique:true,
       },
       Fecha:{
-        type:DataTypes.DATEONLY,
+        type:DataTypes.STRING,
         allowNull:false
       },
       Lugar:{
@@ -23,6 +23,10 @@ module.exports = (sequelize) => {
       },
       Descripcion:{
         type:DataTypes.TEXT,
+        allowNull:false
+      },
+      Foto:{
+        type:DataTypes.STRING,
         allowNull:false
       }
     });

@@ -1,0 +1,42 @@
+
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem;
+}
+.inputGroup{
+    position: relative;
+}
+.inputInput{
+    font: inherit;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    outline: 2px solid #fff;
+    background-color: transparent;
+    transition: outline-color 500ms;
+}
+.inputInput:is(:focus, :valid){
+    outline-color: #3c50eb;
+}
+.inputLabel{
+    position: absolute;
+    top: 0;
+    left: 0;
+    translate: 10px 10px;
+    color: #fff;
+    transition: translate 500ms,
+    scale 500ms;
+}
+.inputInput:focus +
+.inputLabel,
+.inputInput:valid+
+.inputLabel{
+    padding: 5px;
+    translate: 10px -14px;
+    scale: 0.8;
+    background-color: #000;
+}
