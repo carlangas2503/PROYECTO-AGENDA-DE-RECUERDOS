@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux"
 import { useNavigate } from "react-router-dom"
 import { limpiarUser } from "../../redux/actions"
 import style from './NavBar.module.css'
+import { FaSearch,FaSignInAlt,FaRegAddressBook,FaHome } from "react-icons/fa";
 
 function NavBar({setAccess}) {
     const user = useSelector(state=>state.user)
@@ -20,12 +21,12 @@ function NavBar({setAccess}) {
             </div>
             <nav className={style.navLinks}>
                 <ul>
-                 <li className={style.eleList}><Link to={`/home/${user?.ID}`}><button className={style.butonList}>🏠</button></Link></li>
-                 {user?.isAdmin && <li className={style.eleList}><Link to={'/dashAdmin'}><button className={style.butonList}>Tabla Admi</button></Link></li>}
-                 <li className={style.eleList}><Link to={`/home/${user?.ID}/search`}><button className={style.butonList}>🔍</button></Link></li>
+                 <li className={style.eleList}><Link to={`/home/${user?.ID}`}><button className={style.butonList}><FaHome/></button></Link></li>
+                 {user?.isAdmin && <li className={style.eleList}><Link to={'/dashAdmin'}><button className={style.butonList}><FaRegAddressBook/></button></Link></li>}
+                 <li className={style.eleList}><Link to={`/home/${user?.ID}/search`}><button className={style.butonList}><FaSearch/></button></Link></li>
                 </ul>  
             </nav>
-            <button className={style.back} onClick={salir}>Salir</button>
+            <button className={style.back} onClick={salir}><FaSignInAlt/></button>
         </div>
     )
 }

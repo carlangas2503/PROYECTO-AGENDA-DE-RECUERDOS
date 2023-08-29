@@ -7,6 +7,7 @@ const putUser = require('./controlers/User/putUser')
 const allMemories = require('./controlers/Recuerdo/allMemories')
 const postMemories = require('./controlers/Recuerdo/postMemories')
 const includeMemories = require('./controlers/Recuerdo/includeMemorie')
+const buscarUbi = require('./controlers/Recuerdo/buscarUbi')
 
 const server = express.Router()
 
@@ -21,5 +22,6 @@ server.put('/modiUser/:ID',putUser)
 server.get('/allMemories',allMemories)
 server.post('/crearRecuerdo',postMemories)
 server.get('/memories',includeMemories)
+server.get('/ubi',buscarUbi)
 
 module.exports=server

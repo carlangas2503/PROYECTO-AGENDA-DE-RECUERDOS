@@ -3,6 +3,8 @@ export const VERIFICAR_USER = 'VERIFICAR_USER'
 export const LIMPIAR_USER = 'LIMPIAR_USER'
 export const CREAR_USUARIO = 'CREAR_USUARIO'
 export const BUSCAR_MEMORIA = 'BUSCAR_MEMORIA'
+export const VACIAR_BUSQUEDA = 'VACIAR_BUSQUEDA'
+export const ALL_USERS = 'ALL_USERS'
 
 export const verificarUser= (login)=>{
     return async(dispatch)=>{
@@ -32,7 +34,7 @@ export const limpiarUser = ()=>{
         type:LIMPIAR_USER
     }
 }
-export const crearUsuario = ({Nombre,Apellido,Correo,Apodo,Contraseña,FotoPerfil})=>{
+export const crearUsuario = ({Nombre,Apellido,Correo,Apodo,Contraseña},FotoPerfil)=>{
     return async(dispatch)=>{
         try {
             const res = await axios.post('http://localhost:3001/crearUsuario',{
@@ -58,14 +60,41 @@ export const crearUsuario = ({Nombre,Apellido,Correo,Apodo,Contraseña,FotoPerfi
         }
     }
 }
-export const buscarMemoria = (memorie)=>{
+export const buscarMemoria = (memorie,boleano)=>{
     return async(dispatch)=>{
         try {
-            const res = await axios(`http://localhost:3001/memories?search=${memorie}`)
+            if(boleano){
+                const res = await axios(`http://localhost:3001/memories?search=${memorie}`)
+                return dispatch({
+                    type:BUSCAR_MEMORIA,
+                    payload:res.data
+                })
+            }else{
+                const res = await axios(`http://localhost:3001/ubi?search=${memorie}`)
+                return dispatch({
+                    type:BUSCAR_MEMORIA,
+                    payload:res.data
+                })
+            }
+        } catch (error) {
             return dispatch({
-                type:BUSCAR_MEMORIA,
-                payload:res.data
+                type:VACIAR_BUSQUEDA,
+                payload:error.response.data,
             })
+        }
+    }
+}
+
+export const allUserss = ()=>{
+    return async(dispatch)=>{
+        try {
+            const res = await axios('http://localhost:3001/allUsers')
+            if(res.data){
+                return dispatch({
+                    type:ALL_USERS,
+                    payload:res.data
+                })
+            }
         } catch (error) {
             console.log(error);
         }

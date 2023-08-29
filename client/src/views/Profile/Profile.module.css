@@ -1,0 +1,32 @@
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 3rem 4rem;
+    position: relative;
+    border: 1px solid #fff;
+    border-radius: 4px;
+    padding: 10rem;
+}
+.imagen{
+    width: 20rem;
+    border-radius: 50%;
+    transition: all 0.3s;
+    cursor: pointer;
+    position: absolute;
+    left: 4rem;
+    top: 2rem;
+}
+.imagen:hover{
+    opacity: 0.5;
+    transform: scale(1.1);
+}
+.editFoto{
+    position: absolute;
+    left: 12rem;
+    top: 10rem;
+    z-index: -1;
+    font-size: 4rem;
+    color: #fff;
+}

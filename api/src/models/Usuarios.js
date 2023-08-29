@@ -37,6 +37,11 @@ module.exports = (sequelize) => {
       isAdmin:{
         type:DataTypes.BOOLEAN,
         allowNull:false
+      },
+      Habilitado:{
+        type:DataTypes.BOOLEAN,
+        allowNull:false,
+        defaultValue:true
       }
     },{
       timestamps:false,

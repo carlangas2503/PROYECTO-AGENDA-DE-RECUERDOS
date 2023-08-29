@@ -2,12 +2,16 @@ import {
     VERIFICAR_USER,
     LIMPIAR_USER,
     CREAR_USUARIO,
-    BUSCAR_MEMORIA
+    BUSCAR_MEMORIA,
+    VACIAR_BUSQUEDA,
+    ALL_USERS
 } from './actions'
 
 const initialState = {
     user:{},
-    busqueda:[]
+    busqueda:[],
+    error:'',
+    allUsers:[]
 }
 
 const reducer = (state = initialState,{type,payload})=>{
@@ -23,14 +27,26 @@ const reducer = (state = initialState,{type,payload})=>{
                 user:{}
             }
         case CREAR_USUARIO:
-            return{state}
+            return{...state}
         case BUSCAR_MEMORIA:
             return{
                 ...state,
-                busqueda:payload
+                busqueda:payload,
+                error:''
+            }
+        case VACIAR_BUSQUEDA:
+            return {
+                ...state,
+                busqueda:[],
+                error:payload
+            }
+        case ALL_USERS:
+            return{
+                ...state,
+                allUsers:payload
             }
         default:
-            return {state}
+            return {...state}
     }
 }
 export default reducer
