@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { useDropzone } from 'react-dropzone'
 import style from './CreateAcount.module.css'
 import axios from "axios";
-import { FaImage,FaRedo,FaRegFileExcel,FaRegFileImage,FaFileUpload } from "react-icons/fa";
+import { FaImage,FaRedo,FaRegFileExcel,FaFileUpload } from "react-icons/fa";
 
 
 function CreateAcount({setAccess}) {
@@ -47,11 +47,10 @@ function CreateAcount({setAccess}) {
           formData.append("upload_preset","imagenes")
           const res = await axios.post(`https://api.cloudinary.com/v1_1/${name_cloudinary}/image/upload`,formData)
           if(res.data){
-            setErrorFoto(<FaRegFileImage/>)
+            setErrorFoto('')
             setFotoPerfil(res.data.secure_url)
-          }
-          }else{
-          console.log(rejectFiles);
+          }}else{
+            setErrorFoto(<FaRegFileExcel/>)
           }
         } catch (error) {
           setErrorFoto(<FaRegFileExcel/>)  
@@ -63,7 +62,10 @@ function CreateAcount({setAccess}) {
         setErrorFoto('')
         setFotoPerfil('')
     }
-    const{ getRootProps, getInputProps,isDragActive} = useDropzone({onDrop})
+    const{ getRootProps, getInputProps,isDragActive} = useDropzone({onDrop,accept:{
+        'image/jpeg': [],
+        'image/png': []
+      }})
     const hanbleInputs = (event)=>{
         const newUser = {...usuario}
         newUser[event.target.id] = event.target.value
@@ -127,6 +129,7 @@ function CreateAcount({setAccess}) {
                  {isDragActive?<FaFileUpload/>:<FaImage/>}
                 </div>:null}
                 {FotoPerfil && <span className={style.buttonR} onClick={revertir}><FaRedo/></span>}
+                {FotoPerfil && <img className={style.imagen} src={FotoPerfil} alt=''/>}
                 <br />
                 {errorFoto?errorFoto:null}
                 <br />

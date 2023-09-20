@@ -21,9 +21,9 @@ function NavBar({setAccess}) {
             </div>
             <nav className={style.navLinks}>
                 <ul>
-                 <li className={style.eleList}><Link to={`/home/${user?.ID}`}><button className={style.butonList}><FaHome/></button></Link></li>
+                 <li className={style.eleList}><Link to={`/home`}><button className={style.butonList}><FaHome/></button></Link></li>
                  {user?.isAdmin && <li className={style.eleList}><Link to={'/dashAdmin'}><button className={style.butonList}><FaRegAddressBook/></button></Link></li>}
-                 <li className={style.eleList}><Link to={`/home/${user?.ID}/search`}><button className={style.butonList}><FaSearch/></button></Link></li>
+                 <li className={style.eleList}><Link to={`/search`}><button className={style.butonList}><FaSearch/></button></Link></li>
                 </ul>  
             </nav>
             <button className={style.back} onClick={salir}><FaSignInAlt/></button>

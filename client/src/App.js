@@ -24,11 +24,11 @@ function App() {
       {pathname !== '/' && pathname !== '/crearCuenta' && <NavBar setAccess={setAccess}/>}
       <Routes>
         <Route path='/' element={!access?<Login setAccess={setAccess}/>:null}/>
-        <Route path={`/home/:ID`} element={<Home/>}/>
+        <Route path={`/home/`} element={<Home/>}/>
         <Route path={`/profile/:ID`} element={<Profile/>}/>
         <Route path='/dashAdmin' element={<DashAdmin/>}/>
         <Route path='/crearCuenta' element={<CreateAcount setAccess={setAccess}/>}/>
-        <Route path='/home/:ID/search' element={<Search/>}/>
+        <Route path='/search' element={<Search/>}/>
       </Routes>
     </div>
   );

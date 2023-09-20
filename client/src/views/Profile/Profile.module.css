@@ -1,32 +1,140 @@
-.container{
+.container {
+    height: 100vh;
     display: flex;
-    justify-content: center;
     align-items: center;
-    flex-direction: column;
-    margin: 3rem 4rem;
+    justify-content: center;
     position: relative;
-    border: 1px solid #fff;
-    border-radius: 4px;
-    padding: 10rem;
 }
-.imagen{
-    width: 20rem;
+
+/* .background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background: #7d76e9;
+    background-position: 0 50%;
+
+    &:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background: rgba(0, 0, 0, 0);
+    }
+} */
+
+.countInfo,
+.countInter {
+    height: 450px;
+    max-width: 300px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.countInfo {
+    perspective: 900px;
+    perspective-origin: 50% calc(50% - 18em);
+}
+
+.countInter {
+    border-radius: 5px;
+    font-weight: 400;
+    color: #071011;
+    font-size: 1rem;
+    text-align: center;
+    transition: all 0.6s;
+}
+.front {
+    height: 100%;
+    background: #fff;
+    backface-visibility: hidden;
+    border-radius: 5px;
+    box-shadow: 0 15px 10px -10px rgba(0, 0, 0, 0.5), 0 1px 4px rgba(0, 0, 0, 0.3),
+        0 0 40px rgba(0, 0, 0, 0.1) inset;
+}
+
+.background_foto {
+    position: relative;
+    height: 150px;
+    width: 300px;
+    background-size: cover;
+    border-radius: 5px 5px 0 0;
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+    }
+}
+
+.imagen {
+    position: relative;
+    top: -60px;
+    height: 120px;
+    width: 120px;
+    margin: 0 auto;
     border-radius: 50%;
-    transition: all 0.3s;
+    border: 5px solid #fff;
+    background-size: contain;
+}
+
+.text {
+    position: relative;
+    top: -55px;
+    margin: 0 auto;
+    font-family: 'Montserrat';
+    font-size: 14px;
+
+    .name {
+        font-weight: 700;
+        font-family: "Oswald";
+        text-transform: uppercase;
+        font-size: 20px;
+    }
+
+    .details {
+        position: relative;
+        top: -5px;
+        color: #636363;
+        letter-spacing: 0.4px;
+        font-weight: 400;
+        font-family: "Montserrat", sans-serif;
+    }
+}
+.butonEdit{
+    padding: 0.5rem 1rem;
+    position: relative;
+    top: -55px;
     cursor: pointer;
-    position: absolute;
-    left: 4rem;
-    top: 2rem;
+    color: #7d76e9;
+    font-size: 2rem;
+    --c:  #7d76e9; /* the color*/
+    border-radius: 5px;
+    box-shadow: 0 0 0 .1em inset var(--c); 
+    --_g: linear-gradient(var(--c) 0 0) no-repeat;
+    background: 
+      var(--_g) calc(var(--_p,0%) - 100%) 0%,
+      var(--_g) calc(200% - var(--_p,0%)) 0%,
+      var(--_g) calc(var(--_p,0%) - 100%) 100%,
+      var(--_g) calc(200% - var(--_p,0%)) 100%;
+    background-size: 50.5% calc(var(--_p,0%)/2 + .5%);
+    outline-offset: .1em;
+    transition: background-size .4s, background-position 0s .4s;
 }
-.imagen:hover{
-    opacity: 0.5;
-    transform: scale(1.1);
+.butonEdit:hover {
+    --_p: 100%;
+    transition: background-position .4s, background-size 0s;
+    color: #fff;
 }
-.editFoto{
-    position: absolute;
-    left: 12rem;
-    top: 10rem;
-    z-index: -1;
-    font-size: 4rem;
+.butonEdit:active {
+    box-shadow: 0 0 9e9q inset #0009; 
+    background-color: var(--c);
     color: #fff;
 }

@@ -4,7 +4,8 @@ import {
     CREAR_USUARIO,
     BUSCAR_MEMORIA,
     VACIAR_BUSQUEDA,
-    ALL_USERS
+    ALL_USERS,
+    LIMPIAR_BUSQUEDA
 } from './actions'
 
 const initialState = {
@@ -44,6 +45,12 @@ const reducer = (state = initialState,{type,payload})=>{
             return{
                 ...state,
                 allUsers:payload
+            }
+        case LIMPIAR_BUSQUEDA:
+            return {
+                ...state,
+                busqueda:[],
+                error:''
             }
         default:
             return {...state}

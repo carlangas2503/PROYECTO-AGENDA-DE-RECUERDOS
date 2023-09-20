@@ -144,3 +144,9 @@
     background-color: var(--c);
     color: #fff;
 }
+.imagen{
+    max-width: 200px;
+    min-width: 50px;
+    border-radius: 50%;
+    margin: 1rem 0 0 0;
+}

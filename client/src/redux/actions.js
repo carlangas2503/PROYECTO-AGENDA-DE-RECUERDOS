@@ -5,6 +5,7 @@ export const CREAR_USUARIO = 'CREAR_USUARIO'
 export const BUSCAR_MEMORIA = 'BUSCAR_MEMORIA'
 export const VACIAR_BUSQUEDA = 'VACIAR_BUSQUEDA'
 export const ALL_USERS = 'ALL_USERS'
+export const LIMPIAR_BUSQUEDA = 'LIMPIAR_BUSQUEDA'
 
 export const verificarUser= (login)=>{
     return async(dispatch)=>{
@@ -98,5 +99,10 @@ export const allUserss = ()=>{
         } catch (error) {
             console.log(error);
         }
+    }
+}
+export const limpiarBusq = ()=>{
+    return {
+        type:LIMPIAR_BUSQUEDA,
     }
 }

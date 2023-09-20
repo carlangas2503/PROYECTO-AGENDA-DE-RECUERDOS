@@ -1,13 +1,18 @@
+import style from './Card.module.css'
+import {Link} from 'react-router-dom'
 
-function Card({Nombre,Fecha,Lugar,Descripcion,Foto}) {
+function Card({Nombre,Fecha,Lugar,Descripcion,Foto,ID}) {
     return(
-        <div>
-            <h1>{Nombre}</h1>
-            <h2>{Fecha}</h2>
-            <h3>{Lugar}</h3>
-            <h3>{Descripcion}</h3>
-            <img src={Foto} alt="" />
-        </div>
+        <li className={style.center}>
+            <Link to={`/detail/${ID}`}><div className={style.articleCard}>
+                <div className={style.content}>
+                <p className={style.date}>{Fecha}</p>
+                <p className={style.title}>{Nombre}</p>
+                <p className={style.place}>{Lugar}</p>
+                </div>
+                <img className={style.imagen} src={Foto} alt='' />
+            </div></Link>
+        </li>
     )
 }
 export default Card;

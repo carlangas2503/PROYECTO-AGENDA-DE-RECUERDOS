@@ -1,7 +1,7 @@
 import { useState } from "react";
 import style from './Search.module.css'
 import Results from "../Results/Results";
-import { buscarMemoria } from "../../redux/actions";
+import { buscarMemoria, limpiarBusq } from "../../redux/actions";
 import { useDispatch} from 'react-redux'
 import { FaSearch } from "react-icons/fa";
 
@@ -22,10 +22,12 @@ function Search() {
     const buscarUbi = ()=>{
         setTipoBusqueda(false)
         setTipBus('BUSCAR POR UBICACIÓN DEL RECUERDO')
+        dispatch(limpiarBusq())
     }
     const buscarName = ()=>{
         setTipoBusqueda(true)
         setTipBus('BUSCAR POR NOMBRE DEL RECUERDO')
+        dispatch(limpiarBusq())
     }
     return(
         <div className={style.container}>

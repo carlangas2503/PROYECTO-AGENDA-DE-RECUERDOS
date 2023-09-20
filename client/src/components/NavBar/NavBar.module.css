@@ -42,7 +42,8 @@
     color: #fff;
     font-size: 2rem;
     --c:  #fff; /* the color*/
-    
+    border: none;
+    border-radius: 5px;
     box-shadow: 0 0 0 .1em inset var(--c); 
     --_g: linear-gradient(var(--c) 0 0) no-repeat;
     background: 
@@ -57,7 +58,7 @@
 .back:hover {
     --_p: 100%;
     transition: background-position .4s, background-size 0s;
-    color: #000;
+    color: #7d76e9;
 }
 .back:active {
     box-shadow: 0 0 9e9q inset #0009; 
