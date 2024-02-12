@@ -81,8 +81,9 @@
     width: 120px;
     margin: 0 auto;
     border-radius: 50%;
-    border: 5px solid #fff;
+    border: 5px solid #a5a5a5;
     background-size: contain;
+    background-color: #a5a5a5;
 }
 
 .text {
@@ -107,34 +108,4 @@
         font-weight: 400;
         font-family: "Montserrat", sans-serif;
     }
-}
-.butonEdit{
-    padding: 0.5rem 1rem;
-    position: relative;
-    top: -55px;
-    cursor: pointer;
-    color: #7d76e9;
-    font-size: 2rem;
-    --c:  #7d76e9; /* the color*/
-    border-radius: 5px;
-    box-shadow: 0 0 0 .1em inset var(--c); 
-    --_g: linear-gradient(var(--c) 0 0) no-repeat;
-    background: 
-      var(--_g) calc(var(--_p,0%) - 100%) 0%,
-      var(--_g) calc(200% - var(--_p,0%)) 0%,
-      var(--_g) calc(var(--_p,0%) - 100%) 100%,
-      var(--_g) calc(200% - var(--_p,0%)) 100%;
-    background-size: 50.5% calc(var(--_p,0%)/2 + .5%);
-    outline-offset: .1em;
-    transition: background-size .4s, background-position 0s .4s;
-}
-.butonEdit:hover {
-    --_p: 100%;
-    transition: background-position .4s, background-size 0s;
-    color: #fff;
-}
-.butonEdit:active {
-    box-shadow: 0 0 9e9q inset #0009; 
-    background-color: var(--c);
-    color: #fff;
 }

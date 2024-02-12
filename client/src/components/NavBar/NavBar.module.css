@@ -1,67 +1,91 @@
-.container{
-    background-color: #6b63d6;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 6rem;
-    padding: 5px 10%;
+.containerMobile{
+    display: block;
+    div{
+        background-color: red;
+    }
 }
-.perfil{
-    cursor: pointer;
-}
-.imagen{
-    height: 5rem;
-    width: 5rem;
+.fotomobile{
+    width: 100px;
     border-radius: 50%;
-    transition: all 0.3s;
 }
-.imagen:hover{
-    transform: scale(1.2);
+.containerPc{
+    display: none;
 }
-.navLinks{
-    list-style: none;
+
+
+@media screen and (min-width:40em) and (max-width:63.9em) {
+
 }
-.eleList{
-    display: inline-block;
-    padding: 0 3rem;
-}
-.eleList:hover{
-    transform: scale(1.1);
-}
-.butonList{
-    border: none;
-    background-color: transparent;
-    font-size: 1.5rem;
-    margin: 2rem;
-    cursor: pointer;
-    color: #fff;
-}
-.back{
-    padding: 0.5rem 1rem;
-    cursor: pointer;
-    color: #fff;
-    font-size: 2rem;
-    --c:  #fff; /* the color*/
-    border: none;
-    border-radius: 5px;
-    box-shadow: 0 0 0 .1em inset var(--c); 
-    --_g: linear-gradient(var(--c) 0 0) no-repeat;
-    background: 
-      var(--_g) calc(var(--_p,0%) - 100%) 0%,
-      var(--_g) calc(200% - var(--_p,0%)) 0%,
-      var(--_g) calc(var(--_p,0%) - 100%) 100%,
-      var(--_g) calc(200% - var(--_p,0%)) 100%;
-    background-size: 50.5% calc(var(--_p,0%)/2 + .5%);
-    outline-offset: .1em;
-    transition: background-size .4s, background-position 0s .4s;
-}
-.back:hover {
-    --_p: 100%;
-    transition: background-position .4s, background-size 0s;
-    color: #7d76e9;
-}
-.back:active {
-    box-shadow: 0 0 9e9q inset #0009; 
-    background-color: var(--c);
-    color: #fff;
+
+@media screen and (min-width:64em) {
+    .containerPc{
+        background-color: #6b63d6;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 6rem;
+        padding: 5px 10%;
+    }
+    .perfil{
+        cursor: pointer;
+    }
+    .imagen{
+        height: 5rem;
+        width: 5rem;
+        border-radius: 50%;
+        transition: all 0.3s;
+    }
+    .imagen:hover{
+        transform: scale(1.2);
+    }
+    .navLinks{
+        list-style: none;
+    }
+    .eleList{
+        display: inline-block;
+        padding: 0 3rem;
+    }
+    .eleList:hover{
+        transform: scale(1.1);
+    }
+    .butonList{
+        border: none;
+        background-color: transparent;
+        font-size: 1.5rem;
+        margin: 2rem;
+        cursor: pointer;
+        color: #fff;
+    }
+    .back{
+        padding: 0.5rem 1rem;
+        cursor: pointer;
+        color: #fff;
+        font-size: 2rem;
+        --c:  #fff; /* the color*/
+        border: none;
+        border-radius: 5px;
+        box-shadow: 0 0 0 .1em inset var(--c); 
+        --_g: linear-gradient(var(--c) 0 0) no-repeat;
+        background: 
+          var(--_g) calc(var(--_p,0%) - 100%) 0%,
+          var(--_g) calc(200% - var(--_p,0%)) 0%,
+          var(--_g) calc(var(--_p,0%) - 100%) 100%,
+          var(--_g) calc(200% - var(--_p,0%)) 100%;
+        background-size: 50.5% calc(var(--_p,0%)/2 + .5%);
+        outline-offset: .1em;
+        transition: background-size .4s, background-position 0s .4s;
+    }
+    .back:hover {
+        --_p: 100%;
+        transition: background-position .4s, background-size 0s;
+        color: #7d76e9;
+    }
+    .back:active {
+        box-shadow: 0 0 9e9q inset #0009; 
+        background-color: var(--c);
+        color: #fff;
+    }
+    .containerMobile{
+        display: none;
+    }
 }

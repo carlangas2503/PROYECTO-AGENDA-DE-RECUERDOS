@@ -15,18 +15,29 @@ function NavBar({setAccess}) {
         return dispatch(limpiarUser())
     }
     return(
-        <div className={style.container}>
-            <div className={style.perfil}> 
-             <Link to={`/profile/${user?.ID}`}><img className={style.imagen} src={user?.FotoPerfil} alt="" /></Link>   
+        <div>
+            <div className={style.containerPc}>
+                <div className={style.perfil}> 
+                <Link to={`/profile/${user?.ID}`}><img className={style.imagen} src={user?.FotoPerfil} alt="" /></Link>   
+                </div>
+                <nav className={style.navLinks}>
+                    <ul>
+                        <li className={style.eleList}><Link to={`/home`}><button className={style.butonList}><FaHome/></button></Link></li>
+                        {user?.isAdmin && <li className={style.eleList}><Link to={'/dashAdmin'}><button className={style.butonList}><FaRegAddressBook/></button></Link></li>}
+                        <li className={style.eleList}><Link to={`/search`}><button className={style.butonList}><FaSearch/></button></Link></li>
+                    </ul>  
+                </nav>
+                <button className={style.back} onClick={salir}><FaSignInAlt/></button> 
             </div>
-            <nav className={style.navLinks}>
-                <ul>
-                 <li className={style.eleList}><Link to={`/home`}><button className={style.butonList}><FaHome/></button></Link></li>
-                 {user?.isAdmin && <li className={style.eleList}><Link to={'/dashAdmin'}><button className={style.butonList}><FaRegAddressBook/></button></Link></li>}
-                 <li className={style.eleList}><Link to={`/search`}><button className={style.butonList}><FaSearch/></button></Link></li>
-                </ul>  
-            </nav>
-            <button className={style.back} onClick={salir}><FaSignInAlt/></button>
+            <div className={style.cotainerMobile}>
+                <div>
+                <Link to={`/profile/${user?.ID}`}><img className={style.fotomobile} src={user?.FotoPerfil} alt="" /></Link>
+                <Link to={`/home`}><button className={style.butonList}><FaHome/></button></Link>
+                {user?.isAdmin && <Link to={'/dashAdmin'}><button className={style.butonList}><FaRegAddressBook/></button></Link>}
+                <Link to={`/search`}><button className={style.butonList}><FaSearch/></button></Link>
+                <button onClick={salir} ><FaSignInAlt/></button>
+                </div>
+            </div>
         </div>
     )
 }
